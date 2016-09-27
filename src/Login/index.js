@@ -1,6 +1,6 @@
 import React,{ PropTypes, Component} from 'react'
 // import validator from 'validator'
-import '../Styles/login.css'
+// import '../Styles/login.css'
 const propTypes = {
   name: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
@@ -11,7 +11,7 @@ const defaultProps = {
   name: '请输入邮箱',
   password: '请输入密码',
   size: 400,
-  radius:0,
+  radius: 0,
 }
 class Login extends Component {
   // getInitialState(){
