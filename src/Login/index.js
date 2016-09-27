@@ -9,16 +9,16 @@ module.exports = React.createClass({
         password: '请输入密码',
         size: 300,
         radius:10,
-        remenber: 'block',
+        remenber: 'none',
         title: '登录'
     }
   },
   propTypes : {
     title: PropTypes.string.isRequired,
+    remenber: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired,
-    display: PropTypes.string.isRequired,
     radius: PropTypes.number.isRequired,
 },
   getInitialState(){
@@ -62,7 +62,7 @@ module.exports = React.createClass({
         <div className="form-group">
           <input type='password' className="form-password" name='password' placeholder={code}/>
         </div>
-        <div className="login-bottom" style={{display:`${display}`}}>
+        <div className="login-bottom" style={{display:display}}>
           <label className="remenber"><input type="checkbox"/>记住我（公共设备上慎选）</label>
         </div>
         <button className='login-btn'>确定登录</button>
