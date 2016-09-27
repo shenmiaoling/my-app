@@ -1,37 +1,40 @@
-import React,{ PropTypes, Component} from 'react'
-// import validator from 'validator'
-// import '../Styles/login.css'
-const propTypes = {
-  name: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
-  radius: PropTypes.number.isRequired,
-};
-const defaultProps = {
-  name: '请输入邮箱',
-  password: '请输入密码',
-  size: 400,
-  radius: 0,
-}
-class Login extends Component {
-  // getInitialState(){
-  //   return{
-  //     login: {
-  //       email:'',
-  //       password:'',
-  //     }
-  //   }
-  // },
-  // handleChange1(event){
-  //   const login = this.state.login
-  //   login[event.target.name] = event.target.value
-  //   this.setState({
-  //     login: login
-  //   })
-  //   if(!validator.trim(login.email)){
-  //     return console.log('yes')
-  //   }
-  // },
+import React,{ PropTypes} from 'react'
+import validator from 'validator'
+// require( '../Styles/login.css' )
+
+module.exports = React.createClass({
+  getDefaultProps() {
+    return {
+        name: '请输入邮箱',
+        password: '请输入密码',
+        size: 300,
+        radius:10,
+    }
+  },
+  propTypes : {
+        name: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        size: PropTypes.number.isRequired,
+        radius: PropTypes.number.isRequired,
+    },
+  getInitialState(){
+    return{
+      login: {
+        email:'',
+        password:'',
+      }
+    }
+  },
+  handleChange1(event){
+    const login = this.state.login
+    login[event.target.name] = event.target.value
+    this.setState({
+      login: login
+    })
+    if(!validator.trim(login.email)){
+      return console.log('yes')
+    }
+  },
   render() {
     let {name, password, size, radius} = this.props
     let char = name
@@ -39,7 +42,11 @@ class Login extends Component {
     let style = {
       width: size,
       height: size,
-      borderRadius: radius
+      borderRadius: radius,
+      border: '1px solid #000',
+      display: 'block',
+      margin: '0 auto',
+      textAlign: 'center'
     }
     return <div className="login-form" style={ style }>
       <h1 className="login-title">登录</h1>
@@ -63,9 +70,4 @@ class Login extends Component {
       </div>
     </div>
   }
-}
-
-Login.propTypes = propTypes;
-Login.defaultProps = defaultProps;
-
-export default Login;
+})
