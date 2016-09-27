@@ -2,7 +2,7 @@ import React from 'react'
 // import {Link} from 'react-router'
 // import superagent from 'superagent'
 import validator from 'validator'
-import './styles.css'
+// import './styles.css'
 module.exports = React.createClass({
   getInitialState(){
     return{
