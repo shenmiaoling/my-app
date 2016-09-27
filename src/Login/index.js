@@ -9,14 +9,18 @@ module.exports = React.createClass({
         password: '请输入密码',
         size: 300,
         radius:10,
+        remenber: 'block',
+        title: '登录'
     }
   },
   propTypes : {
-        name: PropTypes.string.isRequired,
-        password: PropTypes.string.isRequired,
-        size: PropTypes.number.isRequired,
-        radius: PropTypes.number.isRequired,
-    },
+    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
+    display: PropTypes.string.isRequired,
+    radius: PropTypes.number.isRequired,
+},
   getInitialState(){
     return{
       login: {
@@ -36,9 +40,10 @@ module.exports = React.createClass({
     }
   },
   render() {
-    let {name, password, size, radius} = this.props
+    let {title, name, password, size, remenber, radius} = this.props
     let char = name
     let code = password
+    let display = remenber
     let style = {
       width: size,
       height: size,
@@ -49,7 +54,7 @@ module.exports = React.createClass({
       textAlign: 'center'
     }
     return <div className="login-form" style={ style }>
-      <h1 className="login-title">登录</h1>
+      <h1 className="login-title">{title}</h1>
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
         <input className="form-control" name='email' placeholder={char}/>
@@ -57,7 +62,7 @@ module.exports = React.createClass({
         <div className="form-group">
           <input type='password' className="form-password" name='password' placeholder={code}/>
         </div>
-        <div className="login-bottom">
+        <div className="login-bottom" style={{display:`${display}`}}>
           <label className="remenber"><input type="checkbox"/>记住我（公共设备上慎选）</label>
         </div>
         <button className='login-btn'>确定登录</button>
