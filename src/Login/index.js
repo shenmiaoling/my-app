@@ -1,6 +1,6 @@
 import React,{ PropTypes} from 'react'
 import validator from 'validator'
-require( '../../Styles/login.css' )
+// require( '../../Styles/login.css' )
 
 module.exports = React.createClass({
   getDefaultProps() {
