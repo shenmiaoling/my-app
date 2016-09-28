@@ -13,10 +13,12 @@ html{
   height: 28.125rem;
   border: 1px solid #000000;
   position: absolute;
+  padding: 3% 3%;
   top: 30%;
   left: 35%;
   right: 35%;
   z-index: 1;
+  font-size: 16px
 }
 .close-login{
   display: none;
@@ -24,17 +26,16 @@ html{
 .login-title{
   text-align: center;
   margin: 0;
-  padding-top: 2.81rem;
+  font-size: 2em;
 }
 .form-group{
-  width: 15.31rem;
   display: block;
   margin: 0 auto;
 }
 .form-control{
   width: 100%;
   padding-left: 10px;
-  margin: 3.125rem 0 1.25rem 0;
+  margin: 5% 0;
   font-size: 1.25rem;
   line-height: 2.5rem;
   color: #4d5256;
@@ -57,7 +58,7 @@ html{
   outline: none;
 }
 .login-bottom{
-  margin-top: 0.68rem;
+  margin-top: 2%;
   text-align: center;
 }
 .remenber{
@@ -83,11 +84,14 @@ html{
 .goto-signin{
   float: right;
 }
+.goto-password{
+  float: left;
+}
 .login-bottom-text{
-  width: 15.31rem;
+  width: 80%;
   display: block;
   margin: 0 auto;
-  margin-top: 2.18rem;
+  margin-top: 5%;
 }
 .transparent{
   width: 100%;

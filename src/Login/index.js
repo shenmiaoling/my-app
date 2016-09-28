@@ -1,6 +1,6 @@
 import React,{ PropTypes} from 'react'
 import validator from 'validator'
-// require( '../Styles/login.css' )
+require( '../../Styles/login.css' )
 
 module.exports = React.createClass({
   getDefaultProps() {
@@ -12,13 +12,17 @@ module.exports = React.createClass({
         remenber: 'block',
         title: '登录',
         forgetPassword:'忘记密码',
-        signIn: '去注册'
+        signIn: '去注册',
+        forgetPasswordLink: '#',
+        signInLink: '#',
     }
   },
   propTypes : {
     title: PropTypes.string.isRequired,
     forgetPassword: PropTypes.string.isRequired,
     signIn: PropTypes.string.isRequired,
+    forgetPasswordLink: PropTypes.string.isRequired,
+    signInLink: PropTypes.string.isRequired,
     remenber: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
@@ -50,12 +54,14 @@ module.exports = React.createClass({
     })
   },
   render() {
-    let {title, name, password, size, remenber, radius, forgetPassword, signIn} = this.props
+    let {title, name, password, size, remenber, radius, forgetPassword, signIn, forgetPasswordLink, signInLink} = this.props
     let char = name
     let code = password
     let display = remenber
     let forget = forgetPassword
     let signin = signIn
+    let forgetlink = forgetPasswordLink
+    let signinlink = signInLink
     let style = {
       width: size,
       height: size,
@@ -81,10 +87,12 @@ module.exports = React.createClass({
           <button className='login-btn'>确定登录</button>
         </form>
         <div className="login-bottom-text">
-          <a href="">
-            <span className="forget">{forget}</span>
-          </a>
-          <sapn className="goto-signin"><a href="">{signin}</a></sapn>
+          <span className="goto-password">
+            <a href={forgetlink}>
+              <span className="forget">{forget}</span>
+            </a>
+          </span>
+          <sapn className="goto-signin"><a href={signinlink}>{signin}</a></sapn>
         </div>
       </div>
       <div className={this.state.open?'transparent':''} onClick={this.handleClose}></div>
