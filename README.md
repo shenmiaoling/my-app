@@ -30,7 +30,7 @@ import 'my-app/Styles/login.css'
 
 
 | Property   |     type      |  Description |
-|----------|:-------------:|------:|
+|----------|:-------------:|:------:|
 | name |  String | 登录账户输入框的占位符 |
 | password |    Number   |   登录密码的占位符 |
 | size | Number |    登录组件的大小 |
