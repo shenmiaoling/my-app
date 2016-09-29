@@ -2,7 +2,7 @@ import React,{ PropTypes } from 'react'
 // import {Link} from 'react-router'
 import superagent from 'superagent'
 // import {API_URL} from '../../../constants'
-// require('../../Styles/loader.css')
+require('../../Styles/loader.css')
 // let source = 'http://gs-api.sparklog.com/experts?per_page=4&order_by=-priority'
 module.exports = React.createClass({
   getDefaultProps() {
