@@ -33,5 +33,7 @@
   left: 0;
   bottom: 0;
   cursor: pointer;
-
+}
+.nothing{
+  display: none
 }

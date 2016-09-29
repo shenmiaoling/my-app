@@ -1,10 +1,22 @@
-import React from 'react'
+import React,{ PropTypes } from 'react'
 // import {Link} from 'react-router'
 import superagent from 'superagent'
 // import {API_URL} from '../../../constants'
-require('../../Styles/loader.css')
-let source = 'http://gs-api.sparklog.com/experts?per_page=4&order_by=-priority'
+// require('../../Styles/loader.css')
+// let source = 'http://gs-api.sparklog.com/experts?per_page=4&order_by=-priority'
 module.exports = React.createClass({
+  getDefaultProps() {
+    return {
+      loadMore:'加载更多',
+      nothing:'没有更多了...',
+      source:'http://gs-api.sparklog.com/experts?per_page=4&order_by=-priority'
+    }
+  },
+  propTypes : {
+    loadMore: PropTypes.string.isRequired,
+    nothing: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+  },
   getInitialState() {
     return {
       experts: [],
@@ -14,11 +26,15 @@ module.exports = React.createClass({
     }
   },
   componentDidMount() {
-    this.fetchExperts(`${source}&page=${this.state.page}`)
+    let {source} = this.props
+    let url = source
+    this.fetchExperts(`${url}&page=${this.state.page}`)
   },
   componentWillReceiveProps(nextProps){
-    if(source!==nextProps.source){
-      this.fetchExperts(`${nextProps.source}&page=1`,false)
+    let {source} = this.props
+    let url = source
+    if(url!==nextProps.url){
+      this.fetchExperts(`${nextProps.url}&page=1`,false)
       this.setState({
         page: 1
       })
@@ -35,6 +51,10 @@ module.exports = React.createClass({
     })
   },
   render() {
+    let {loadMore, nothing, source} = this.props
+    let loadmore = loadMore
+    let loadless = nothing
+    let url = source
     if(this.state.experts.length === 0) {
       return <div style={{textAlign:'center'}}>
         <div className="loader" style={{backgroundColor:'lightgray'}} ></div>
@@ -58,12 +78,12 @@ module.exports = React.createClass({
           this.setState({
             loading:true
           },()=>{
-            this.fetchExperts(`${source}&page=${this.state.page}`)
+            this.fetchExperts(`${url}&page=${this.state.page}`)
           })
-        }}>加载更多</a>
+        }}>{loadmore}</a>
       }
     </div>
-    <div className={this.state.currentExperts.length === 0?'nothing-open':'nothing'}>没有更多了...</div>
+    <div className={this.state.currentExperts.length === 0?'nothing-open':'nothing'}>{loadless}</div>
     </div>
     </div>
   }
