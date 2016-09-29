@@ -6,7 +6,7 @@ module.exports = React.createClass({
       loadMore:'加载更多',
       nothing:'没有更多了...',
       itemListLength: 2,
-      loading:false
+      loading:false,
     }
   },
   propTypes : {
@@ -17,18 +17,22 @@ module.exports = React.createClass({
   },
   getInitialState() {
     return {
-      load: this.props.loading,
+      load: this.props.loading
     }
   },
+  // fecthSomething(){
+  //   this.setState({
+  //     load: false
+  //   })
+  // },
   render() {
     let {loadMore, nothing, itemListLength } = this.props
     let loadmore = loadMore
     let loadless = nothing
     let length = itemListLength
-    // let load = loading
-    return <div className="expertlist">
-      <div className="patent-bottom">
-        <div style={{marginBottom:'25px'}} className={length === 0?'loading-close':'loading'}>
+
+    return <div className="loader-container">
+        <div className={length === 0?'loading-close':'loading'}>
       {
         this.state.load ? <div className="loader"></div> : <a href='/' onClick={(e)=>{
           e.preventDefault()
@@ -39,7 +43,6 @@ module.exports = React.createClass({
       }
     </div>
     <div className={length?'nothing':'nothing-open'}>{loadless}</div>
-    </div>
     </div>
   }
 })
