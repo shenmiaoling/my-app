@@ -5,8 +5,7 @@ module.exports = React.createClass({
     return {
       loadMore:'加载更多',
       nothing:'没有更多了...',
-      itemListLength: 4,
-      addItem: 8,
+      itemListLength: 2,
       loading:false
     }
   },
@@ -17,42 +16,16 @@ module.exports = React.createClass({
     loading: PropTypes.bool.isRequired,
   },
   getInitialState() {
-    let {loading} = this.props
-    let load = loading
     return {
-      load: load,
+      load: this.props.loading,
     }
   },
-  // componentDidMount() {
-  //   let {source} = this.props
-  //   let url = source
-  //   this.fetchExperts(`${url}&page=${this.state.page}`)
-  // },
-  // componentWillReceiveProps(nextProps){
-  //   let {source} = this.props
-  //   let url = source
-  //   if(url!==nextProps.url){
-  //     this.fetchExperts(`${nextProps.url}&page=1`,false)
-  //     this.setState({
-  //       page: 1
-  //     })
-  //   }
-  // },
-  // fetchExperts(url,load=true){
-  //   superagent.get(url).end((error, response) => {
-  //     this.setState({
-  //       loading: false,
-  //       experts: load?this.state.experts.concat(response.body):response.body,
-  //       page: response.body.length===0?this.state.page + 0:this.state.page + 1,
-  //       currentExperts: response.body
-  //     })
-  //   })
-  // },
   render() {
-    let {loadMore, nothing, itemListLength, } = this.props
+    let {loadMore, nothing, itemListLength } = this.props
     let loadmore = loadMore
     let loadless = nothing
     let length = itemListLength
+    // let load = loading
     return <div className="expertlist">
       <div className="patent-bottom">
         <div style={{marginBottom:'25px'}} className={length === 0?'loading-close':'loading'}>
@@ -60,7 +33,7 @@ module.exports = React.createClass({
         this.state.load ? <div className="loader"></div> : <a href='/' onClick={(e)=>{
           e.preventDefault()
           this.setState({
-            load:true
+            load: true
           })
         }}>{loadmore}</a>
       }
