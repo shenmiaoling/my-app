@@ -1,4 +1,4 @@
-import React,{ PropTypes} from 'react'
+import React from 'react'
 import validator from 'validator'
 require( '../../Styles/login.css' )
 
@@ -17,18 +17,18 @@ module.exports = React.createClass({
         signInLink: '#',
     }
   },
-  propTypes : {
-    title: PropTypes.string.isRequired,
-    forgetPassword: PropTypes.string.isRequired,
-    signIn: PropTypes.string.isRequired,
-    forgetPasswordLink: PropTypes.string.isRequired,
-    signInLink: PropTypes.string.isRequired,
-    remenber: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    size: PropTypes.number.isRequired,
-    radius: PropTypes.number.isRequired,
-},
+//   propTypes : {
+//     title: PropTypes.string.isRequired,
+//     forgetPassword: PropTypes.string.isRequired,
+//     signIn: PropTypes.string.isRequired,
+//     forgetPasswordLink: PropTypes.string.isRequired,
+//     signInLink: PropTypes.string.isRequired,
+//     remenber: PropTypes.string.isRequired,
+//     name: PropTypes.string.isRequired,
+//     password: PropTypes.string.isRequired,
+//     size: PropTypes.number.isRequired,
+//     radius: PropTypes.number.isRequired,
+// },
   getInitialState(){
     return{
       login: {
