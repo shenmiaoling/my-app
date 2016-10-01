@@ -20,7 +20,7 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
+    "start": "react-scripts start",
     "babel": "babel src --out-dir lib",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
