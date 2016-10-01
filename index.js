@@ -1,3 +1,4 @@
 module.exports = {
-  H1: require('./lib/Component')
+  Login: require('./lib/Login'),
+  Loader: require('./lib/Loader')
 }
