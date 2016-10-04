@@ -1,5 +1,5 @@
 import React from 'react'
-import validator from 'validator'
+// import validator from 'validator'
 require( '../../Styles/login.css' )
 
 module.exports = React.createClass({
@@ -38,16 +38,16 @@ module.exports = React.createClass({
       open: true
     }
   },
-  handleChange1(event){
-    const login = this.state.login
-    login[event.target.name] = event.target.value
-    this.setState({
-      login: login
-    })
-    if(!validator.trim(login.email)){
-      return console.log('yes')
-    }
-  },
+  // handleChange1(event){
+  //   const login = this.state.login
+  //   login[event.target.name] = event.target.value
+  //   this.setState({
+  //     login: login
+  //   })
+  //   if(!validator.trim(login.email)){
+  //     return console.log('yes')
+  //   }
+  // },
   handleClose(){
     this.setState({
       open: !this.state.open
