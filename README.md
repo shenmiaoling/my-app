@@ -52,7 +52,7 @@ import 'my-app/Styles/tabbar.css'
   <Tabbar
     item1="红色"
     item2="蓝色"
-    item1Content={<div></div>}
+    item1Content={<div>我是红色标签页内容</div>}
   />
 	
 
