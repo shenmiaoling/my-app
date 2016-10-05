@@ -1,20 +1,6 @@
 import React from 'react'
-require('../../Styles/tabbar.css')
+// require('../../Styles/tabbar.css')
 let TabsControl = React.createClass({
-  getDefaultProps() {
-    return {
-        item1: '红色...jhkshgagk' 
-        // password: '请输入密码',
-        // size: 400,
-        // radius:10,
-        // remenber: 'block',
-        // title: '登录',
-        // forgetPassword:'忘记密码',
-        // signIn: '去注册',
-        // forgetPasswordLink: '#',
-        // signInLink: '#',
-    }
-  },
 	getInitialState(){
 		return{
 			currentIndex: 0
@@ -49,7 +35,13 @@ let Tab = React.createClass({
 		return(<div>{this.props.children}</div>)
 	}
 })
+
 module.exports = React.createClass({
+  getDefaultProps() {
+    return {
+      item1: '红色'
+    }
+  },
 	render(){
     let {item1} = this.props
     let first = item1
