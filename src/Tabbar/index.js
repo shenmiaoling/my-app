@@ -1,5 +1,5 @@
 import React from 'react'
-require('../../Styles/tabbar.css')
+// require('../../Styles/tabbar.css')
 let TabsControl = React.createClass({
   getInitialState(){
     return{
