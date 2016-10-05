@@ -22,14 +22,14 @@
     "validator": "^6.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "babel": "babel src --out-dir lib",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "peerDependencies": {
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   }
 }
